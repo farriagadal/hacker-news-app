@@ -1,4 +1,4 @@
-import { styled } from '../../stitches'
+import { styled } from 'src/stitches'
 
 export const Header = styled('header', {
   fontSize: '28px',

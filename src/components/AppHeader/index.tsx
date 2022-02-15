@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from './styles'
-import { Container } from '../../styles/Container'
+import { Container } from 'src/styles/Container'
 
 export default function App() {
   return (
