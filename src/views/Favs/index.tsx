@@ -1,11 +1,11 @@
 import { Header } from './styles'
 import { Container } from 'src/styles/Container'
 
-export default function AppHeader () {
+export default function Favs () {
   return (
     <Header>
       <Container>
-        Hacker News
+        FAVS
       </Container>
     </Header>
   )

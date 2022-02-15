@@ -15,5 +15,5 @@ export const Container = styled('div', {
   },
   '@xl': {
     maxWidth: '1172px'
-  },
+  }
 })
