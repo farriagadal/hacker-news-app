@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { Header } from './styles'
 import { Container } from 'src/styles/Container'
 
-export default function App() {
+export default function App () {
   return (
     <>
       <Container>
@@ -12,5 +12,5 @@ export default function App() {
         Hacker News
       </Header>
     </>
-  );
+  )
 }
