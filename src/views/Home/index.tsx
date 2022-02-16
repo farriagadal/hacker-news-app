@@ -32,7 +32,7 @@ export default function Home () {
       fontWeight: '400',
       fontSize: 14,
       letterSpacing: 'normal',
-      marginTop: '-7px'
+      marginTop: '-2px'
     }),
     menu: (base: any) => ({
       ...base,
@@ -167,7 +167,7 @@ export default function Home () {
   return (
     <Container>
       <SelectContainer>
-        <Select options={options} styles={selectStyles} placeholder="Select your news" />
+        <Select options={options} styles={selectStyles} placeholder="Select your news" isSearchable={false} />
       </SelectContainer>
       <ArticlesList articles={articles} />
     </Container>
