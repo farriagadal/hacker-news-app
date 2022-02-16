@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Item, TextSection, LikeSection } from './styles'
+import { Card, TextSection, LikeSection } from './styles'
 
 export default function ArticleItem (props: any) {
   const [isFavorite, setIsFavorite] = useState(true)
@@ -36,8 +36,8 @@ export default function ArticleItem (props: any) {
   }, [])
 
   return (
-    <Item>
-      <TextSection>
+    <Card>
+      <TextSection href={props.article.story_url} target="_blank">
         <span><img src="icons/icon-time.svg" alt="icon" /> {props.article.created_at}</span>
         <p>{props.article.story_title}</p>
       </TextSection>
@@ -48,6 +48,6 @@ export default function ArticleItem (props: any) {
             : <img src="/icons/favorite-outfilled.svg" alt="heart-icon" />
         }
       </LikeSection>
-    </Item>
+    </Card>
   )
 }

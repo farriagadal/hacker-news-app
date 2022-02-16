@@ -1,6 +1,6 @@
 import { styled } from 'src/stitches'
 
-export const Item = styled('div', {
+export const Card = styled('div', {
   display: 'flex',
   borderRadius: 6,
   border: 'solid 2px #d4d4d4',
@@ -8,10 +8,14 @@ export const Item = styled('div', {
   height: 90
 })
 
-export const TextSection = styled('div', {
+export const TextSection = styled('a', {
   display: 'grid',
   alignSelf: 'center',
   padding: '0 25px',
+  textDecoration: 'none',
+  width: 'stretch',
+  height: '100%',
+  alignContent: 'center',
   span: {
     display: 'flex',
     alignItems: 'center',

@@ -1,12 +1,20 @@
-import { Header } from './styles'
+import { useEffect, useState } from 'react'
+import ArticlesList from 'src/components/ArticlesList'
+import Pagination from 'src/components/Pagination'
 import { Container } from 'src/styles/Container'
 
 export default function Favs () {
+  const [articles, setArticles] = useState([])
+
+  useEffect(() => {
+    const articlesFavs = JSON.parse(localStorage.getItem('ARTICLES_FAVS') || '[]')
+    setArticles(articlesFavs)
+  }, [])
+
   return (
-    <Header>
-      <Container>
-        FAVS
-      </Container>
-    </Header>
+    <Container>
+      <ArticlesList articles={articles} />
+      <Pagination />
+    </Container>
   )
 }
