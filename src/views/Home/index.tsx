@@ -1,5 +1,6 @@
 import ArticlesList from 'src/components/ArticlesList'
 import SelectInput from 'src/components/SelectInput'
+import Pagination from 'src/components/Pagination'
 import { Container } from 'src/styles/Container'
 import { SelectOption } from './styles'
 
@@ -92,7 +93,7 @@ export default function Home () {
     <Container>
       <SelectInput options={options} placeholder="Select your news" isSearchable={false} />
       <ArticlesList articles={articles} />
-      {/* <Pagination /> */}
+      <Pagination />
     </Container>
   )
 }

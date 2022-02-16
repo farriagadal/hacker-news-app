@@ -6,7 +6,7 @@ export default function Navbar () {
   return (
     <List>
       <NavLink to="/">All</NavLink>
-      <NavLink to="/favs">Favs</NavLink>
+      <NavLink to="/favs">My faves</NavLink>
     </List>
   )
 }
