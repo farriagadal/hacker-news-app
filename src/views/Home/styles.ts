@@ -1,14 +1,29 @@
 import { styled } from 'src/stitches'
 
-export const Header = styled('header', {
-  fontSize: '28px',
-  fontWeight: '700',
-  color: '#3b3b3b',
-  textAlign: 'left',
-  boxShadow: '0 1px 4px 0 rgba(0, 21, 41, 0.12)',
-  backgroundImage: 'linear-gradient(to bottom, #ececec -32%, #fff 124%)',
-  borderBottom: 'solid 1px #f8f8f827',
+export const SelectContainer = styled('div', {
+  // margin: '0 26px',
+  margin: '38px 0',
+  maxWidth: '240px',
+  fontSize: '18px',
+  fontFamily: 'Roboto',
+  letterSpacing: '0.02em',
+  // textTransform: 'uppercase',
+  '&>label': {
+    fontSize: '15px',
+    letterSpacing: '0.02em',
+    color: '#FFFFFF',
+    textTransform: 'none',
+    marginBottom: '10px',
+    display: 'block'
+  }
+})
+
+export const SelectOption = styled('div', {
   display: 'flex',
   alignItems: 'center',
-  height: 114
+  img: {
+    maxWidth: '24px',
+    maxHeight: '24px',
+    marginRight: '10px'
+  }
 })
