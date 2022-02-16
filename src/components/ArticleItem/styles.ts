@@ -41,5 +41,6 @@ export const LikeSection = styled('button', {
   minWidth: 68,
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  marginLeft: 'auto'
 })

@@ -5,6 +5,7 @@ export const List = styled('div', {
   columnGap: 8,
   justifyContent: 'center',
   marginTop: 96,
+  marginBottom: 96,
   button: {
     cursor: 'pointer',
     width: 32,
