@@ -20,6 +20,8 @@ export default function Home () {
       borderRadius: 4,
       cursor: 'pointer',
       boxShadow: 'none',
+      height: 32,
+      minHeight: 32,
       '&:hover': {
         borderColor: '#1797ff'
       }
@@ -29,7 +31,8 @@ export default function Home () {
       color: '#343434',
       fontWeight: '400',
       fontSize: 14,
-      letterSpacing: 'normal'
+      letterSpacing: 'normal',
+      marginTop: '-7px'
     }),
     menu: (base: any) => ({
       ...base,
@@ -73,11 +76,13 @@ export default function Home () {
     singleValue: (base: any) => ({
       ...base,
       color: '#343434',
-      fontWeight: '400'
+      fontWeight: '400',
+      marginTop: '-3px'
     }),
-    indicatorContainer: (base: any) => ({
+    indicatorsContainer: (base: any) => ({
       ...base,
-      color: '#343434'
+      color: '#343434',
+      marginTop: '-3px'
     })
   }
 

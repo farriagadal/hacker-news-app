@@ -33,6 +33,13 @@ export const TextSection = styled('div', {
   }
 })
 
-export const LikeSection = styled('div', {
-  background: '#ccc'
+export const LikeSection = styled('button', {
+  border: 'none',
+  cursor: 'pointer',
+  background: '#f5f5f5',
+  width: 68,
+  minWidth: 68,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
 })
