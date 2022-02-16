@@ -94,7 +94,7 @@ export default function Home () {
   const [articles, setArticles] = useState([])
 
   useEffect(() => {
-    ArticleService.getArticles().then((data: any) => {
+    ArticleService.getArticles({ hitsPerPage: 8 }).then((data: any) => {
       console.log(data)
       const articlesFiltered = data.hits.filter((hit: any) => hit.author && hit.story_title && hit.story_url && hit.created_at)
       setArticles(articlesFiltered)
