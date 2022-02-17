@@ -14,7 +14,7 @@ export default function Favs () {
   return (
     <Container>
       <ArticlesList articles={articles} />
-      <Pagination />
+      <Pagination page={1} onChange={(page: number) => console.log('favs pag click', page)} />
     </Container>
   )
 }
