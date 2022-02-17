@@ -5,16 +5,23 @@ import { Container } from 'src/styles/Container'
 
 export default function Favs () {
   const [articles, setArticles] = useState([])
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
 
   useEffect(() => {
     const articlesFavs = JSON.parse(localStorage.getItem('ARTICLES_FAVS') || '[]')
-    setArticles(articlesFavs)
-  }, [])
+    console.log('articlesFavs', articlesFavs)
+
+    const articlesToShow = articlesFavs.slice((page - 1) * 8, page * 8)
+    setTotalPages(Math.ceil(articlesFavs.length / 8))
+    // setPage(page)
+    setArticles(articlesToShow)
+  }, [page])
 
   return (
     <Container>
       <ArticlesList articles={articles} />
-      <Pagination page={1} onChange={(page: number) => console.log('favs pag click', page)} />
+      <Pagination totalPages={totalPages} page={page} onChange={(page: number) => setPage(page)} />
     </Container>
   )
 }

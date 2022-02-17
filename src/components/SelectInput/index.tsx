@@ -80,7 +80,7 @@ export default function SelectInput (props: any) {
   }
   return (
     <SelectContainer>
-      <Select options={props.options} styles={selectStyles} placeholder="Select your news" isSearchable={false} />
+      <Select defaultValue={props.defaultValue} onChange={props.onChange} options={props.options} styles={selectStyles} placeholder="Select your news" isSearchable={false} />
     </SelectContainer>
   )
 }

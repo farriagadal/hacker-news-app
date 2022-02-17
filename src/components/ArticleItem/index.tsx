@@ -5,25 +5,27 @@ import { formatDistance } from 'date-fns'
 export default function ArticleItem (props: any) {
   const [isFavorite, setIsFavorite] = useState(true)
 
+  useEffect(() => {
+    checkFavorite()
+  }, [])
+
+  const date = formatDistance(new Date(props.article.created_at), new Date(), { addSuffix: true })
+
   const checkFavorite = () => {
     const articlesFavs = JSON.parse(localStorage.getItem('ARTICLES_FAVS') || '[]')
     const isExist = articlesFavs.some((article: any) => article.objectID === props.article.objectID)
-    console.log(isExist)
+    console.log('isExist', isExist)
     setIsFavorite(isExist)
   }
-
-  const date = formatDistance(new Date(props.article.created_at), new Date(), { addSuffix: true })
 
   const addToFavorites = () => {
     let articlesFavs = JSON.parse(localStorage.getItem('ARTICLES_FAVS') || '[]')
     const articleFound = articlesFavs.find((article: any) => article.objectID === props.article.objectID)
-    console.log('articleFound', articleFound)
     if (articleFound) {
       articlesFavs = articlesFavs.filter((article: any) => article.objectID !== props.article.objectID)
     } else {
       articlesFavs.push({
         author: props.article.author,
-        // story_id: props.article.story_id,
         story_title: props.article.story_title,
         story_url: props.article.story_url,
         created_at: props.article.created_at,
@@ -33,15 +35,6 @@ export default function ArticleItem (props: any) {
     localStorage.setItem('ARTICLES_FAVS', JSON.stringify(articlesFavs))
     checkFavorite()
   }
-
-  useEffect(() => {
-    checkFavorite()
-
-    const date = formatDistance(new Date(props.article.created_at), new Date(), { addSuffix: true })
-    console.log('created_at', props.article.created_at)
-    console.log('new Date(props.article.created_at)', new Date(props.article.created_at))
-    console.log('date', date)
-  }, [])
 
   return (
     <Card>

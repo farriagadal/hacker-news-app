@@ -8,14 +8,15 @@ import ArticleService from 'src/services/article.service'
 
 const options = [
   { value: 'angular', label: <SelectOption><img src="/icons/angular-icon.png"/>Angular </SelectOption> },
-  { value: 'react', label: <SelectOption><img src="/icons/react-icon.png"/>Reactjs </SelectOption> },
-  { value: 'vue', label: <SelectOption><img src="/icons/vue-icon.png"/>Vuejs </SelectOption> }
+  { value: 'reactjs', label: <SelectOption><img src="/icons/react-icon.png"/>Reactjs </SelectOption> },
+  { value: 'vuejs', label: <SelectOption><img src="/icons/vue-icon.png"/>Vuejs </SelectOption> }
 ]
+
+const filterParams = JSON.parse(localStorage.getItem('FILTER_PARAMS') || 'null')
 
 export default function Home () {
   const [articles, setArticles] = useState([])
-
-  const [params, setParams] = useState({ hitsPerPage: 8, page: 1 })
+  const [params, setParams] = useState(filterParams)
   const [totalPages, setTotalPages] = useState(1)
 
   useEffect(() => {
@@ -27,15 +28,16 @@ export default function Home () {
     })
   }, [params])
 
-  const changePage = (page: number) => {
-    setParams({ ...params, page })
+  const changeParams = (filterParams: any) => {
+    setParams(filterParams)
+    localStorage.setItem('FILTER_PARAMS', JSON.stringify(filterParams))
   }
 
   return (
     <Container>
-      <SelectInput options={options} placeholder="Select your news" isSearchable={false} />
+      <SelectInput defaultValue={options.find((option) => option.value === filterParams.query)} onChange={(data: any) => changeParams({ ...params, query: data.value })} options={options} placeholder="Select your news" isSearchable={false} />
       <ArticlesList articles={articles} />
-      <Pagination totalPages={totalPages} page={params.page} onChange={(page: number) => changePage(page)} />
+      <Pagination totalPages={totalPages} page={params.page} onChange={(page: number) => changeParams({ ...params, page })} />
     </Container>
   )
 }
