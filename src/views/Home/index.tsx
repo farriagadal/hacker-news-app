@@ -5,6 +5,7 @@ import Pagination from 'src/components/Pagination'
 import { Container } from 'src/styles/Container'
 import { SelectOption } from './styles'
 import ArticleService from 'src/services/article.service'
+import Article from 'src/models/article'
 
 const options = [
   { value: 'angular', label: <SelectOption><img src="/icons/angular-icon.png"/>Angular </SelectOption> },
@@ -15,7 +16,7 @@ const options = [
 const filterParams = JSON.parse(localStorage.getItem('FILTER_PARAMS') || 'null')
 
 export default function Home () {
-  const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState<Article[]>([])
   const [params, setParams] = useState(filterParams || { hitsPerPage: 8, page: 1, query: null })
   const [totalPages, setTotalPages] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
@@ -23,8 +24,8 @@ export default function Home () {
   useEffect(() => {
     setIsLoading(true)
     ArticleService.getArticles(params).then((data: any) => {
-      console.log(data)
-      const articlesFiltered = data.hits.filter((hit: any) => hit.author && hit.story_title && hit.story_url && hit.created_at)
+      const arr: any[] = data.hits.filter((hit: any) => hit.author && hit.story_title && hit.story_url && hit.created_at)
+      const articlesFiltered: Article[] = arr.map((article: any) => new Article(article))
       data.nbPages && setTotalPages(data.nbPages)
       setArticles([])
       setTimeout(() => {

@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import ArticleItem from 'src/components/ArticleItem'
 import { List, LoadingIcon, EmptyState } from './styles'
+import Article from 'src/models/article'
 
 export default function ArticlesList (props: any) {
   return (
@@ -9,7 +10,7 @@ export default function ArticlesList (props: any) {
         ? <LoadingIcon src="/icons/loading.svg" />
         : props.articles.length
           ? <List>
-              {props.articles.map((article: any, index: any) => {
+              {props.articles.map((article: Article, index: any) => {
                 return (<ArticleItem key={index} article={article} />)
               })}
             </List>
