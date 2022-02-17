@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { List } from './styles'
 
 // const totalPages = 12
-const maxPages = 10 // 2 min
+const maxPages = window.innerWidth > 768 ? 10 : 4 // 2 min
 
 interface PaginationProps {
   // onChange: (page: number) => void;
@@ -39,7 +39,7 @@ export default function Pagination ({ onChange, page, totalPages = 1 }: Paginati
 
   return (
     <List>
-      <button onClick={() => previousPage()}>＜</button>
+      {totalPages > 0 && <button onClick={() => previousPage()}>＜</button>}
       {
         Array.from({ length: totalPages }).map((_, index) => {
           if (
@@ -53,7 +53,7 @@ export default function Pagination ({ onChange, page, totalPages = 1 }: Paginati
           }
         })
       }
-      <button onClick={() => nextPage()}>＞</button>
+       {totalPages > 0 && <button onClick={() => nextPage()}>＞</button>}
     </List>
   )
 }

@@ -8,12 +8,10 @@ export const Card = styled('div', {
   height: 90,
   overflow: 'hidden',
   '&:hover': {
-    // opacity: 0.5,
     'a, button': {
       opacity: 1
     }
   }
-
 })
 
 export const TextSection = styled('a', {
@@ -58,5 +56,8 @@ export const LikeSection = styled('button', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  marginLeft: 'auto'
+  marginLeft: 'auto',
+  '&:hover': {
+    background: '#ddd'
+  }
 })

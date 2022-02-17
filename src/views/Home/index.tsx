@@ -18,8 +18,10 @@ export default function Home () {
   const [articles, setArticles] = useState([])
   const [params, setParams] = useState(filterParams || { hitsPerPage: 8, page: 1, query: null })
   const [totalPages, setTotalPages] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     ArticleService.getArticles(params).then((data: any) => {
       console.log(data)
       const articlesFiltered = data.hits.filter((hit: any) => hit.author && hit.story_title && hit.story_url && hit.created_at)
@@ -28,6 +30,8 @@ export default function Home () {
       setTimeout(() => {
         setArticles(articlesFiltered)
       }, 0)
+    }).finally(() => {
+      setIsLoading(false)
     })
   }, [params])
 
@@ -39,7 +43,7 @@ export default function Home () {
   return (
     <Container>
       <SelectInput defaultValue={options.find((option) => option.value === params.query)} onChange={(data: any) => changeParams({ ...params, query: data.value })} options={options} placeholder="Select your news" isSearchable={false} />
-      <ArticlesList articles={articles} />
+      <ArticlesList isLoading={isLoading} articles={articles} />
       <Pagination totalPages={totalPages} page={params.page} onChange={(page: number) => changeParams({ ...params, page })} />
     </Container>
   )
