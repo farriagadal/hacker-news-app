@@ -6,6 +6,7 @@ import { Container } from 'src/styles/Container'
 import { SelectOption } from './styles'
 import ArticleService from 'src/services/article.service'
 import Article from 'src/models/article'
+import FilterParams from 'src/models/filter-params'
 
 const options = [
   { value: 'angular', label: <SelectOption><img src="/icons/angular-icon.png"/>Angular </SelectOption> },
@@ -14,12 +15,6 @@ const options = [
 ]
 
 const filterParams = JSON.parse(localStorage.getItem('FILTER_PARAMS') || 'null')
-
-class FilterParams {
-  hitsPerPage: number = 8
-  page: number = 1
-  query?: string
-}
 
 export default function Home () {
   const [articles, setArticles] = useState<Article[]>([])

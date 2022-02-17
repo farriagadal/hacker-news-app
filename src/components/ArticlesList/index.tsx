@@ -3,14 +3,19 @@ import ArticleItem from 'src/components/ArticleItem'
 import { List, LoadingIcon, EmptyState } from './styles'
 import Article from 'src/models/article'
 
-export default function ArticlesList (props: any) {
+type ArticlesListProps = {
+  articles: Article[],
+  isLoading?: boolean,
+}
+
+export default function ArticlesList ({ articles, isLoading }: ArticlesListProps) {
   return (
     <Fragment>
-      {props.isLoading
+      {isLoading
         ? <LoadingIcon src="/icons/loading.svg" />
-        : props.articles.length
+        : articles.length
           ? <List>
-              {props.articles.map((article: Article, index: number) => {
+              {articles.map((article: Article, index: number) => {
                 return (<ArticleItem key={index} article={article} />)
               })}
             </List>

@@ -1,6 +1,7 @@
 import api from 'src/api'
+import FilterParams from 'src/models/filter-params'
 
-const getArticles = (params: any) => new Promise((resolve, reject) => {
+const getArticles = (params: FilterParams) => new Promise((resolve, reject) => {
   api.get('/search_by_date', { params })
     .then((response) => {
       resolve(response)
