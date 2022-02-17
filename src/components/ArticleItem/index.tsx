@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Card, TextSection, LikeSection } from './styles'
+import { formatDistance } from 'date-fns'
 
 export default function ArticleItem (props: any) {
   const [isFavorite, setIsFavorite] = useState(true)
@@ -10,6 +11,8 @@ export default function ArticleItem (props: any) {
     console.log(isExist)
     setIsFavorite(isExist)
   }
+
+  const date = formatDistance(new Date(props.article.created_at), new Date(), { addSuffix: true })
 
   const addToFavorites = () => {
     let articlesFavs = JSON.parse(localStorage.getItem('ARTICLES_FAVS') || '[]')
@@ -33,12 +36,17 @@ export default function ArticleItem (props: any) {
 
   useEffect(() => {
     checkFavorite()
+
+    const date = formatDistance(new Date(props.article.created_at), new Date(), { addSuffix: true })
+    console.log('created_at', props.article.created_at)
+    console.log('new Date(props.article.created_at)', new Date(props.article.created_at))
+    console.log('date', date)
   }, [])
 
   return (
     <Card>
       <TextSection href={props.article.story_url} target="_blank">
-        <span><img src="icons/icon-time.svg" alt="icon" /> {props.article.created_at}</span>
+        <span><img src="icons/icon-time.svg" alt="icon" /> {date} by {props.article.author}</span>
         <p>{props.article.story_title}</p>
       </TextSection>
       <LikeSection onClick={addToFavorites}>

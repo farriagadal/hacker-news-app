@@ -5,7 +5,8 @@ export const Card = styled('div', {
   borderRadius: 6,
   border: 'solid 2px #d4d4d4',
   backgroundColor: '#fff',
-  height: 90
+  height: 90,
+  overflow: 'hidden'
 })
 
 export const TextSection = styled('a', {

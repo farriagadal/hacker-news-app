@@ -23,14 +23,19 @@ export const List = styled('div', {
     // b: {
     //   fontWeight: 'bold'
     // },
+    '&:hover': {
+      color: '#1890ff',
+      // backgroundColor: '#58afff',
+      borderColor: '#1890ff'
+    },
     '&.active': {
       color: '#fff',
       backgroundColor: '#1890ff',
       borderColor: '#1890ff'
     },
-    '&:hover': {
-      color: '#1890ff',
-      // backgroundColor: '#58afff',
+    '&:active': {
+      color: '#fff',
+      backgroundColor: '#1890ff',
       borderColor: '#1890ff'
     }
   }
