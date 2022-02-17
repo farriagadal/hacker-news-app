@@ -6,10 +6,19 @@ export const Card = styled('div', {
   border: 'solid 2px #d4d4d4',
   backgroundColor: '#fff',
   height: 90,
-  overflow: 'hidden'
+  overflow: 'hidden',
+  '&:hover': {
+    // opacity: 0.5,
+    'a, button': {
+      opacity: 1
+    }
+  }
+
 })
 
 export const TextSection = styled('a', {
+  transition: '0.3s',
+  opacity: 0.5,
   display: 'grid',
   alignSelf: 'center',
   padding: '0 25px',
@@ -39,6 +48,8 @@ export const TextSection = styled('a', {
 })
 
 export const LikeSection = styled('button', {
+  transition: '0.3s',
+  opacity: 0.5,
   border: 'none',
   cursor: 'pointer',
   background: '#f5f5f5',
