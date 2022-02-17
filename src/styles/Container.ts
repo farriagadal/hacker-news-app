@@ -4,8 +4,11 @@ export const Container = styled('div', {
   width: '100%',
   marginRight: 'auto',
   marginLeft: 'auto',
+  maxWidth: 'calc(100% - 40px)',
+  padding: '0 20px',
   '@sm': {
-    maxWidth: '640px'
+    maxWidth: '640px',
+    padding: '0'
   },
   '@md': {
     maxWidth: '768px'

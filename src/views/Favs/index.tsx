@@ -14,8 +14,10 @@ export default function Favs () {
 
     const articlesToShow = articlesFavs.slice((page - 1) * 8, page * 8)
     setTotalPages(Math.ceil(articlesFavs.length / 8))
-    // setPage(page)
-    setArticles(articlesToShow)
+    setArticles([])
+    setTimeout(() => {
+      setArticles(articlesToShow)
+    }, 0)
   }, [page])
 
   return (

@@ -3,7 +3,7 @@ import { Card, TextSection, LikeSection } from './styles'
 import { formatDistance } from 'date-fns'
 
 export default function ArticleItem (props: any) {
-  const [isFavorite, setIsFavorite] = useState(true)
+  const [isFavorite, setIsFavorite] = useState(false)
 
   useEffect(() => {
     checkFavorite()
@@ -14,8 +14,7 @@ export default function ArticleItem (props: any) {
   const checkFavorite = () => {
     const articlesFavs = JSON.parse(localStorage.getItem('ARTICLES_FAVS') || '[]')
     const isExist = articlesFavs.some((article: any) => article.objectID === props.article.objectID)
-    console.log('isExist', isExist)
-    setIsFavorite(isExist)
+    setIsFavorite(!!isExist)
   }
 
   const addToFavorites = () => {

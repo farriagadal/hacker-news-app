@@ -24,7 +24,10 @@ export default function Home () {
       console.log(data)
       const articlesFiltered = data.hits.filter((hit: any) => hit.author && hit.story_title && hit.story_url && hit.created_at)
       data.nbPages && setTotalPages(data.nbPages)
-      setArticles(articlesFiltered)
+      setArticles([])
+      setTimeout(() => {
+        setArticles(articlesFiltered)
+      }, 0)
     })
   }, [params])
 
