@@ -5,7 +5,7 @@ import { List } from './styles'
 // const totalPages = 12
 const maxPages = window.innerWidth > 768 ? 10 : 4 // 2 min
 
-interface PaginationProps {
+type PaginationProps = {
   // onChange: (page: number) => void;
   // onChange: Function
   onChange: Function,

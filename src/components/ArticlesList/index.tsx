@@ -10,7 +10,7 @@ export default function ArticlesList (props: any) {
         ? <LoadingIcon src="/icons/loading.svg" />
         : props.articles.length
           ? <List>
-              {props.articles.map((article: Article, index: any) => {
+              {props.articles.map((article: Article, index: number) => {
                 return (<ArticleItem key={index} article={article} />)
               })}
             </List>

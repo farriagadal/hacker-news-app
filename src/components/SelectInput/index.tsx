@@ -2,7 +2,14 @@ import Select from 'react-select'
 import { SelectContainer } from './styles'
 // import { Container } from 'src/styles/Container'
 
-export default function SelectInput (props: any) {
+type SelectInputProps = {
+  placeholder: string
+  defaultValue: any,
+  onChange: any,
+  options: any[],
+}
+
+export default function SelectInput ({ defaultValue, onChange, options, placeholder }: SelectInputProps) {
   const selectStyles = {
     control: (base: any) => ({
       ...base,
@@ -80,7 +87,7 @@ export default function SelectInput (props: any) {
   }
   return (
     <SelectContainer>
-      <Select defaultValue={props.defaultValue} onChange={props.onChange} options={props.options} styles={selectStyles} placeholder="Select your news" isSearchable={false} />
+      <Select defaultValue={defaultValue} onChange={onChange} options={options} styles={selectStyles} placeholder={placeholder} isSearchable={false} />
     </SelectContainer>
   )
 }
