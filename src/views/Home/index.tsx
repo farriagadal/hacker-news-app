@@ -24,13 +24,11 @@ export default function Home () {
 
   useEffect(() => {
     setIsLoading(true)
-    ArticleService.getArticles(params).then((data: any) => {
-      const arr: any[] = data.hits.filter((hit: any[any]) => hit.author && hit.story_title && hit.story_url && hit.created_at)
-      const articlesFiltered: Article[] = arr.map((article: any) => new Article(article))
-      data.nbPages && setTotalPages(data.nbPages)
+    ArticleService.getArticles(params).then(({ data, pages }: any) => {
+      pages && setTotalPages(pages)
       setArticles([])
       setTimeout(() => {
-        setArticles(articlesFiltered)
+        setArticles(data)
       })
     }).finally(() => {
       setIsLoading(false)
