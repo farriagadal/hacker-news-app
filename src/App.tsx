@@ -14,7 +14,7 @@ function App () {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="favs" element={<Favs />} />
+        <Route path="/favs" element={<Favs />} />
       </Routes>
     </div>
   )
