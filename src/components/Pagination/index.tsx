@@ -2,12 +2,9 @@
 import { useEffect, useState } from 'react'
 import { List } from './styles'
 
-// const totalPages = 12
 const maxPages = window.innerWidth > 768 ? 10 : 4 // 2 min
 
 type PaginationProps = {
-  // onChange: (page: number) => void;
-  // onChange: Function
   onChange: Function,
   page: number,
   totalPages?: number
@@ -17,7 +14,6 @@ export default function Pagination ({ onChange, page, totalPages = 1 }: Paginati
   const [currentPage, setCurrentPage] = useState(1)
 
   const selectPage = (page: number) => {
-    console.log('selectPage', page)
     onChange(page)
   }
 

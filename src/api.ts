@@ -5,8 +5,6 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use((config) => {
-  // const token = JSON.parse(localStorage.getItem('accessToken'))
-  // config.headers.Authorization = token ? `JWT ${token}` : ''
   return config
 })
 
